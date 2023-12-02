@@ -22,7 +22,7 @@ Route::domain('localhost')->group(function () {
 Route::domain('{subdomain}.localhost')->group(function () {
     Route::get('/', function($subdomain) {
         $company = Company::where('subdomain', $subdomain)->firstOrFail();
-        return view('companies.show',compact('company'));
+        return view('companies.subdomain',compact('company'));
     });
 });
 

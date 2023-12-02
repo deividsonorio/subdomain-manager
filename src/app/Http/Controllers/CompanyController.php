@@ -13,7 +13,7 @@ use App\Helpers\Helper;
 class CompanyController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a list of companies.
      */
     public function index()
     {
@@ -24,7 +24,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new company.
      */
     public function create()
     {
@@ -32,22 +32,21 @@ class CompanyController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created company in storage.
      */
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:companies',
-            'email' => 'required|email',
-            'address' => 'required',
-            'subdomain' => 'required|unique:companies',
+            'name' => 'required|min:3|max:100|unique:companies',
+            'email' => 'required|min:5|max:50|email',
+            'address' => 'required|min:5|max:255|',
+            'subdomain' => 'required|alpha_num:ascii|min:3|max:20|unique:companies',
             'logo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $fileName = time() . '.' . $request->logo->extension();
-        $path = $request->logo->storeAs('logos', $fileName, 'public');
-
         $input = $request->all();
+        $fileName = $input['name'] . '.' . $request->logo->extension();
+        $path = $request->logo->storeAs('logos', $fileName, 'public');
         $input['logo'] = $path;
 
         Company::create($input);
@@ -57,7 +56,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified company.
      */
     public function show(Company $company)
     {
@@ -70,7 +69,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified company.
      */
     public function edit(Company $company)
     {
@@ -78,7 +77,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified company in storage.
      */
     public function update(Request $request, Company $company)
     {
@@ -86,30 +85,30 @@ class CompanyController extends Controller
 
         if($input['name'] == $company->name) {
             $request->validate([
-                'name' => 'required',
+                'name' => 'required|min:3|max:100',
             ]);
         } else {
             $request->validate([
-                'name' => 'required|unique:companies',
+                'name' => 'required|min:3|max:100|unique:companies',
             ]);
         }
 
         if($input['subdomain'] == $company->subdomain) {
             $request->validate([
-                'subdomain' => 'required',
+                'subdomain' => 'required|alpha_num:ascii|min:3|max:20',
             ]);
         } else {
             $request->validate([
-                'subdomain' => 'required|unique:companies',
+                'subdomain' => 'required|alpha_num:ascii|min:3|max:20|unique:companies',
             ]);
         }
 
         $request->validate([
-            'email' => 'email',
+            'email' => 'required|min:5|max:50|email',
         ]);
 
         if ($logo = $request->file('logo')) {
-            $fileName = time() . '.' . $request->logo->extension();
+            $fileName = $input['name'] . '.' . $request->logo->extension();
             $path = $request->logo->storeAs('logos', $fileName, 'public');
 
             $input = $request->all();
@@ -126,7 +125,7 @@ class CompanyController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified company from storage.
      */
     public function destroy(Company $company)
     {
