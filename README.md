@@ -8,6 +8,14 @@ Follow the instructions below to setting up the project.
 
 ## Run Project With GNU Make (UNIX Based OS: MacOS, Linux)
 
+You can start the project containers and database simply running: 
+
+<code>make run-smd-setup-db</code>
+
+And access the address in the browser: http://localhost:8777
+
+Other options available are:
+
 - `make run-smd-setup` : Build docker and start all containers with Laravel setup
 - `make run-smd-setup-db` : Build docker and start all containers with Laravel setup, database migrations and seeder
 - `make run-smd` : Start all docker containers
