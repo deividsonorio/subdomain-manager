@@ -59,24 +59,31 @@ A **new subdomain** is created with each company creation, e.g. **newco** has th
 - I used Laravel's default error handling for non-existent subdomains, due to short development time. This already covers non-existent subdomains and other possible errors.
 
 ###Home Page
+
 ![Home](images/home.png?raw=true "Home")
 
 ###Companies list
+
 ![List](images/list.png?raw=true "List")
 
 ###Company creation
+
 ![Creation](images/create.png?raw=true "Create")
 
 ###Company show
+
 ![Show](images/show.png?raw=true "Show")
 
 ###Company edit
+
 ![Show](images/edit.png?raw=true "Edit")
 
 ###Company subdomain
+
 ![Show](images/subdomain.png?raw=true "Edit")
 
 ###Trying to access nonexistent subdomain
+
 ![Show](images/nonexistent.png?raw=true "Edit")
 
 ## The Task
