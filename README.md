@@ -46,7 +46,7 @@ A **new subdomain** is created with each company creation, e.g. **newco** has th
 
 - The project should work automatically for revision purposes. There was no intention to work with certificates and other host configurations in a localhost environment. 
 - The project is a proof of concept. No changes in the host machine should be mandatory, e.g. change the /etc/hosts files.
-- Due to the limited time, the goal was not to create differente virtualhosts for every new subdomain. It would add a new layer of complexity.
+- Due to the limited time, the goal was not to create different virtualhosts for every new subdomain. It would add a new layer of complexity.
 - The system should be able to resolve requests for different subdomains automatically, without the need for new views or new files for each creation of companies.
 - I used Laravel's default error handling for non-existent subdomains, due to short development time. This already covers non-existent subdomains and other possible errors.
 
