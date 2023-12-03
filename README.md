@@ -58,31 +58,31 @@ A **new subdomain** is created with each company creation, e.g. **newco** has th
 - The system should be able to resolve requests for different subdomains automatically, without the need for new views or new files for each creation of companies.
 - I used Laravel's default error handling for non-existent subdomains, due to short development time. This already covers non-existent subdomains and other possible errors.
 
-###Home Page
+### Home Page
 
 ![Home](images/home.png?raw=true "Home")
 
-###Companies list
+### Companies list
 
 ![List](images/list.png?raw=true "List")
 
-###Company creation
+### Company creation
 
 ![Creation](images/create.png?raw=true "Create")
 
-###Company show
+### Company show
 
 ![Show](images/show.png?raw=true "Show")
 
-###Company edit
+### Company edit
 
 ![Show](images/edit.png?raw=true "Edit")
 
-###Company subdomain
+### Company subdomain
 
 ![Show](images/subdomain.png?raw=true "Edit")
 
-###Trying to access nonexistent subdomain
+### Trying to access nonexistent subdomain
 
 ![Show](images/nonexistent.png?raw=true "Edit")
 
