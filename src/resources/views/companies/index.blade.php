@@ -1,5 +1,7 @@
 @extends('companies.layout')
 
+@section('pageTitle', '| Companies')
+
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -41,16 +43,15 @@
                 <td width="380px">
                     <form action="{{ route('companies.destroy',$company->id) }}" method="POST">
 
-                        <a class="btn btn-info" href="{{ route('companies.show', $company->id) }}">Show</a>
+                        <div class="d-grid gap-2 d-md-block">
+                            <a class="btn btn-primary btn-sm" href="{{ route('companies.show', $company->id) }}">Show</a>
+                            <a class="btn btn-secondary btn-sm" href="{{ route('companies.edit', $company->id) }}">Edit</a>
+                            <a class="btn btn-success btn-sm" href="{{ \App\Helpers\insert_subdomain(Request::getSchemeAndHttpHost(), $company->subdomain) }}">Subdomain</a>
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </div>
 
-                        <a class="btn btn-primary" href="{{ route('companies.edit', $company->id) }}">Edit</a>
-
-                        <a class="btn btn-primary" href="{{ \App\Helpers\insert_subdomain(Request::getSchemeAndHttpHost(), $company->subdomain) }}">Subdomain</a>
-
-                        @csrf
-                        @method('DELETE')
-
-                        <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>
             </tr>

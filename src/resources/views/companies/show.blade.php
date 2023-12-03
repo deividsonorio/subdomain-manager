@@ -1,5 +1,7 @@
 @extends('companies.layout')
 
+@section('pageTitle', '| Show Company')
+
 @section('content')
     <main>
         <h1>Company: {{$company->name}}</h1>
@@ -14,7 +16,7 @@
                         <ul class="list-unstyled mt-3 mb-4">
                             <li><b>Address: </b>{{$company->address}}</li>
                             <li><b>E-mail: </b>{{$company->name}}</li>
-                            <li><b>Subdomain: </b> {{$company->name}} </li>
+                            <li><b>Subdomain: </b> {{$company->subdomain}} </li>
                             <li><b>Logo</b></li>
                             <li><img src="{{ asset("storage/$company->logo") }}" width="100px"></li>
                         </ul>

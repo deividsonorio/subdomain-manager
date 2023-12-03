@@ -1,5 +1,7 @@
 @extends('companies.layout')
 
+@section('pageTitle', '| Subdomain ' . $company->subdomain)
+
 @section('content')
     <div class="col-lg-8 mx-auto p-4 py-md-5">
         <header class="d-flex align-items-center pb-3 mb-5 border-bottom">
@@ -24,7 +26,7 @@
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li><b>Address: </b>{{$company->address}}</li>
                                 <li><b>E-mail: </b>{{$company->name}}</li>
-                                <li><b>Subdomain: </b> {{$company->name}} </li>
+                                <li><b>Subdomain: </b> {{$company->subdomain}} </li>
                                 <li><b>Logo</b></li>
                                 <li><img src="{{ asset("storage/$company->logo") }}" width="100px"></li>
                             </ul>

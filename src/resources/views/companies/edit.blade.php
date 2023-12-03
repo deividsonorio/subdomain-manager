@@ -1,5 +1,7 @@
 @extends('companies.layout')
 
+@section('pageTitle', '| Edit Company')
+
 @section('content')
     <div class="row">
         <div class="col-lg-12 margin-tb">

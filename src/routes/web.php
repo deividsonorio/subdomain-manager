@@ -13,7 +13,7 @@ use App\Models\Company;
 // Home and company routes
 Route::domain('localhost')->group(function () {
     Route::get('/', function() {
-        return 'teste';
+        return view('index');
     });
     Route::resource('companies', CompanyController::class);
 });
